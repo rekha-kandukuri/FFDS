@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
-import 'profile 2 screen.dart';
-import 'chatscreen2.dart';
-import 'matches screen.dart';
+import 'Profile.dart';
+import 'Allchats.dart';
+import 'Matches.dart';
 
 class ChatScreen extends StatefulWidget {
   String email4;

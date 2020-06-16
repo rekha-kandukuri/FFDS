@@ -1,14 +1,14 @@
 import 'package:dating_app/constants.dart';
 import 'package:flutter/cupertino.dart';
-import 'profile 2 screen.dart';
+import 'Profile.dart';
 import 'networking.dart';
 import 'registration.dart';
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'matches screen.dart';
-import 'chatscreen2.dart';
+import 'Matches.dart';
+import 'Allchats.dart';
 import 'chatscreen.dart';
-
+import 'provider.dart';
 class LoginScreen extends StatefulWidget{
     static const String id ='login';
 
@@ -21,17 +21,41 @@ const String sendEmailUrl='https://ffds-new.herokuapp.com/send';
 
 class _LoginScreenState extends State<LoginScreen> {
   final messageController= TextEditingController();
-
   bool passwordVisible= true;
   String email;
   String password;
+  Login login=Login();
+  @override
+  void initState() {
+   auto();
+    super.initState();
+  }
+  Future<void> auto() async
+  {
+   await login.autoLogin();
+   if(login.auto==false)
+     {
+       print('false');
+       return;
+     }
+    if(login.auto==true)
+      {
+        print('true');
+         email =  login.getEmail();
+        password= login.getPassword();
+       submitData();
+
+      }
+
+
+  }
+
   void sendEmail()async{
 
     NetworkData network =NetworkData('$sendEmailUrl?mailto=$email');
     var response = await network.getData();
     if(response=="error")
       {
-
         Alert(context: context, title: "Unable to send email").show();
 
       }
@@ -57,13 +81,14 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     else
       {
+        Alert(context: context, title: 'email verified').show();
         Navigator.push(context, MaterialPageRoute(builder: (context){
           return ProfileScreen(email2: email,);
         }));
       }
   }
 
-  void submitData()async{
+  Future<void> submitData()async{
 
     NetworkData network = NetworkData('$url?email=$email&password=$password');
     var userData = await network.getData();
@@ -71,6 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
       {
        
         verifyEmail();
+        login.saveUserData(email, password);
 
         Matches(email);
         Chats(email);

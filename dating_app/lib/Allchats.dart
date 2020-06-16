@@ -1,7 +1,7 @@
-import 'package:dating_app/matches%20screen.dart';
+import 'package:dating_app/Matches.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
-import 'package:dating_app/profile 2 screen.dart';
+import 'package:dating_app/Profile.dart';
 import 'chatscreen.dart';
 class Chats extends StatefulWidget {
   String email3;

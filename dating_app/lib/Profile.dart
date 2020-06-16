@@ -1,11 +1,11 @@
-import 'package:dating_app/chatscreen2.dart';
+import 'package:dating_app/Allchats.dart';
 import 'package:dating_app/login.dart';
 import 'package:flutter/material.dart';
-import 'package:dating_app/profile 1 screen.dart';
+import 'package:dating_app/registration2.dart';
 import 'package:flutter/widgets.dart';
 import 'constants.dart';
-import 'package:file_picker/file_picker.dart';
-import 'matches screen.dart';
+import 'provider.dart';
+import 'Matches.dart';
 import 'package:dating_app/chatscreen.dart';
 import 'networking.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -35,6 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String bio;
   String expectations;
   bool isLoading = false;
+  Login login =Login();
   @override
   void initState() {
     super.initState();
@@ -91,8 +92,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             IconButton(
               icon:Icon( Icons.person_outline),
               color: kbuttonColour,
-              onPressed: ()
+              onPressed: () async
               {
+                 await login.logOut();
                 Navigator.pushNamed(context, LoginScreen.id);
               },
             ),

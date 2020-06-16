@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:otp_text_field/style.dart';
 import 'constants.dart';
 import 'package:otp_text_field/otp_text_field.dart';
-import 'package:dating_app/profile 2 screen.dart';
+import 'package:dating_app/Profile.dart';
 import 'networking.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 

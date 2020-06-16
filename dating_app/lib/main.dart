@@ -1,13 +1,16 @@
 import 'package:dating_app/chatscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'constants.dart';
 import 'login.dart';
-import 'profile 1 screen.dart';
-import 'profile 2 screen.dart';
-import 'chatscreen2.dart';
-import 'matches screen.dart';
+import 'registration2.dart';
+import 'Profile.dart';
+import 'Allchats.dart';
+import 'Matches.dart';
+import 'provider.dart';
 
 import 'registration.dart';
+
 
 
 void main() => runApp(DatingApp());

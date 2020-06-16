@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
-import 'package:dating_app/profile 1 screen.dart';
+import 'package:dating_app/registration2.dart';
 class RegScreen extends StatefulWidget {
   static const String id ='regscreen';
   @override
